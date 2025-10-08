@@ -1,0 +1,161 @@
+{
+  "app": {
+    "name": "ZENITHFLIX",
+    "title": "ZenithFlix - AI-Driven Streaming Platform",
+    "description": "Next-generation AI-driven streaming platform"
+  },
+  "storage": {
+    "watchHistoryKey": "zenithflix-watch-history",
+    "myListKey": "zenithflix-my-list"
+  },
+  "localStorage": {
+    "myListKey": "zenithflix-my-list"
+  },
+  "api": {
+    "defaultStaleTime": 300000,
+    "defaultRetry": 1
+  },
+  "ui": {
+    "scrollAmount": 800,
+    "contentCardWidth": 256,
+    "maxModalWidth": "4xl",
+    "headerHeight": "4rem"
+  },
+  "routes": {
+    "home": "/",
+    "trending": "/trending",
+    "myList": "/my-list",
+    "notFound": "/404"
+  },
+  "homepage": {
+    "trendingTitle": "Trending Now",
+    "popularTitle": "Popular on ZenithFlix",
+    "continueWatchingTitle": "Continue Watching",
+    "newReleasesTitle": "New Releases",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "Failed to load content. Please try again later.",
+    "minContentForSecondRow": 5,
+    "tabAll": "All",
+    "tabMovies": "Movies",
+    "tabSeries": "Series",
+    "searchResultsTitle": "Search results for"
+  },
+  "trending": {
+    "pageTitle": "Trending",
+    "pageDescription": "Most popular movies and series right now",
+    "trendingNowTitle": "Trending Now",
+    "trendingMoviesTitle": "Trending Movies",
+    "trendingSeriesTitle": "Trending Series"
+  },
+  "noResults": {
+    "title": "Your search for \"{query}\" did not have any matches.",
+    "suggestions": "Suggestions:",
+    "suggestion1": "Try different keywords",
+    "suggestion2": "Looking for a movie or TV show?",
+    "suggestion3": "Try using a movie, TV show title, an actor or director",
+    "suggestion4": "Try a genre, like comedy, romance, sports, or drama"
+  },
+  "navigation": {
+    "home": "Home",
+    "trending": "Trending",
+    "myList": "My List",
+    "notFound": "404"
+  },
+  "myList": {
+    "emptyTitle": "Your list is empty",
+    "emptyMessage": "Add titles to your list by clicking the + icon on any movie or series"
+  },
+  "search": {
+    "placeholder": "Search titles, genres, cast...",
+    "minQueryLength": 2,
+    "maxResults": 5,
+    "enterPrompt": "Press Enter to search for",
+    "viewAllResults": "View all",
+    "resultsLabel": "results",
+    "searchLabel": "Search"
+  },
+  "profile": {
+    "accountLabel": "Account",
+    "myListLabel": "My List",
+    "signOutLabel": "Sign Out",
+    "pageTitle": "Account",
+    "pageDescription": "Manage your profile and account settings",
+    "avatarChangeLabel": "Click to change",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "currentPasswordLabel": "Current Password",
+    "newPasswordLabel": "New Password",
+    "confirmPasswordLabel": "Confirm New Password",
+    "changePasswordTitle": "Change Password",
+    "saveButton": "Save Changes",
+    "savingButton": "Saving...",
+    "cancelButton": "Cancel",
+    "currentPasswordPlaceholder": "Enter current password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmPasswordPlaceholder": "Confirm new password",
+    "accountInfoTitle": "Account Information",
+    "memberSinceLabel": "Member since:",
+    "userIdLabel": "User ID:",
+    "successMessage": "Profile updated successfully",
+    "notAuthenticatedError": "Not authenticated",
+    "passwordsNotMatchError": "New passwords do not match",
+    "currentPasswordRequiredError": "Current password is required to change password",
+    "updateFailedError": "Failed to update profile"
+  },
+  "auth": {
+    "loginTitle": "Sign In",
+    "registerTitle": "Sign Up",
+    "emailPlaceholder": "Email or phone number",
+    "emailPlaceholderRegister": "Email address",
+    "passwordPlaceholder": "Password",
+    "passwordPlaceholderRegister": "Password (minimum 6 characters)",
+    "namePlaceholder": "Name",
+    "loginButton": "Sign In",
+    "registerButton": "Sign Up",
+    "loggingInButton": "Signing In...",
+    "registeringButton": "Creating Account...",
+    "rememberMeLabel": "Remember me",
+    "needHelpLabel": "Need help?",
+    "newToZenflix": "New to Zenflix?",
+    "alreadyHaveAccount": "Already have an account?",
+    "signUpNow": "Sign up now",
+    "signInNow": "Sign in now",
+    "recaptchaNotice": "This page is protected by Google reCAPTCHA to ensure you're not a bot.",
+    "learnMore": "Learn more",
+    "termsAgreement": "I agree to the Terms of Service and Privacy Policy",
+    "loginFailedError": "Login failed. Please try again.",
+    "emailExistsError": "This email is already associated with an account. Please sign in instead.",
+    "registrationFailedError": "Unable to create account. Please check your information and try again.",
+    "backgroundImage": "https://assets.nflxext.com/ffe/siteui/vlv3/563192ea-ac0e-4906-a865-ba9899ffafad/6b2842d1-2339-4f08-84f6-148e9fcbe01b/US-en-20231218-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+  },
+  "toast": {
+    "addedToList": "Added to My List",
+    "removedFromList": "Removed from My List"
+  },
+  "modal": {
+    "playButton": "Play",
+    "addToListButton": "Add to My List",
+    "removeFromListButton": "Remove from My List",
+    "closeButton": "Close"
+  },
+  "contentCard": {
+    "noImage": "No Image",
+    "playLabel": "Play",
+    "addToListLabel": "Add to My List",
+    "removeFromListLabel": "Remove from My List",
+    "viewDetailsLabel": "View details for",
+    "watchedLabel": "watched"
+  },
+  "contentRow": {
+    "scrollLeftLabel": "Scroll left",
+    "scrollRightLabel": "Scroll right"
+  },
+  "notFoundPage": {
+    "title": "404",
+    "heading": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "homeButton": "Go to Homepage",
+    "trendingButton": "Browse Trending",
+    "helpText": "Lost your way? Try searching for what you need or explore our trending content."
+  }
+}
