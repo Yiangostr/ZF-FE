@@ -1,0 +1,112 @@
+{
+  "app": {
+    "name": "ZENITHFLIX",
+    "title": "ZenithFlix - AI-Driven Streaming Platform",
+    "description": "Next-generation AI-driven streaming platform"
+  },
+  "storage": {
+    "watchHistoryKey": "zenithflix-watch-history",
+    "myListKey": "zenithflix-my-list"
+  },
+  "localStorage": {
+    "myListKey": "zenithflix-my-list"
+  },
+  "api": {
+    "defaultStaleTime": 300000,
+    "defaultRetry": 1
+  },
+  "ui": {
+    "scrollAmount": 800,
+    "contentCardWidth": 256,
+    "maxModalWidth": "4xl",
+    "headerHeight": "4rem"
+  },
+  "routes": {
+    "home": "/",
+    "trending": "/trending",
+    "myList": "/my-list",
+    "notFound": "/404"
+  },
+  "homepage": {
+    "trendingTitle": "Trending Now",
+    "popularTitle": "Popular on ZenithFlix",
+    "continueWatchingTitle": "Continue Watching",
+    "newReleasesTitle": "New Releases",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "Failed to load content. Please try again later.",
+    "minContentForSecondRow": 5,
+    "tabAll": "All",
+    "tabMovies": "Movies",
+    "tabSeries": "Series",
+    "searchResultsTitle": "Search results for"
+  },
+  "trending": {
+    "pageTitle": "Trending",
+    "pageDescription": "Most popular movies and series right now",
+    "trendingNowTitle": "Trending Now",
+    "trendingMoviesTitle": "Trending Movies",
+    "trendingSeriesTitle": "Trending Series"
+  },
+  "noResults": {
+    "title": "Your search for \"{query}\" did not have any matches.",
+    "suggestions": "Suggestions:",
+    "suggestion1": "Try different keywords",
+    "suggestion2": "Looking for a movie or TV show?",
+    "suggestion3": "Try using a movie, TV show title, an actor or director",
+    "suggestion4": "Try a genre, like comedy, romance, sports, or drama"
+  },
+  "navigation": {
+    "home": "Home",
+    "trending": "Trending",
+    "myList": "My List",
+    "notFound": "404"
+  },
+  "myList": {
+    "emptyTitle": "Your list is empty",
+    "emptyMessage": "Add titles to your list by clicking the + icon on any movie or series"
+  },
+  "search": {
+    "placeholder": "Search titles, genres, cast...",
+    "minQueryLength": 2,
+    "maxResults": 5,
+    "enterPrompt": "Press Enter to search for",
+    "viewAllResults": "View all",
+    "resultsLabel": "results",
+    "searchLabel": "Search"
+  },
+  "profile": {
+    "accountLabel": "Account",
+    "myListLabel": "My List",
+    "signOutLabel": "Sign Out"
+  },
+  "toast": {
+    "addedToList": "Added to My List",
+    "removedFromList": "Removed from My List"
+  },
+  "modal": {
+    "playButton": "Play",
+    "addToListButton": "Add to My List",
+    "removeFromListButton": "Remove from My List",
+    "closeButton": "Close"
+  },
+  "contentCard": {
+    "noImage": "No Image",
+    "playLabel": "Play",
+    "addToListLabel": "Add to My List",
+    "removeFromListLabel": "Remove from My List",
+    "viewDetailsLabel": "View details for",
+    "watchedLabel": "watched"
+  },
+  "contentRow": {
+    "scrollLeftLabel": "Scroll left",
+    "scrollRightLabel": "Scroll right"
+  },
+  "notFoundPage": {
+    "title": "404",
+    "heading": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "homeButton": "Go to Homepage",
+    "trendingButton": "Browse Trending",
+    "helpText": "Lost your way? Try searching for what you need or explore our trending content."
+  }
+}
