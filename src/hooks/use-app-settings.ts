@@ -3,7 +3,9 @@ import {
   selectAppSettings,
   selectIsInitialized,
 } from '@/store/slices/app-settings-slice'
-import { useAppSelector } from '@/store'
+import { useAppSelector, useAppDispatch } from '@/store'
+
+export { useAppSelector, useAppDispatch }
 
 export const useApiUrls = () => {
   return useAppSelector(selectApiUrls)

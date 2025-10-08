@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { ContentRow } from '@/components/streaming/content-row'
 import { ContentModal } from '@/components/streaming/content-modal'
 import { VideoPlayer } from '@/components/streaming/video-player'
@@ -9,10 +9,10 @@ import { useStreamingContent } from '@/features/streaming/hooks/use-streaming-co
 import { useWatchHistory } from '@/features/streaming/hooks/use-watch-history'
 import { useMyList } from '@/hooks/use-my-list'
 import { StreamingContent } from '@/types'
-import { useState } from 'react'
 import config from '@/config/constants.json'
+import ProtectedRoute from '@/components/auth/protected-route'
 
-export default function MyListPage() {
+function MyListPageContent() {
   const { data: allContent, isLoading } = useStreamingContent()
   const { updateProgress } = useWatchHistory()
   const { myList } = useMyList()
@@ -128,5 +128,13 @@ export default function MyListPage() {
         />
       )}
     </div>
+  )
+}
+
+export default function MyListPage() {
+  return (
+    <ProtectedRoute>
+      <MyListPageContent />
+    </ProtectedRoute>
   )
 }

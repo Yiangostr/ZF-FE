@@ -1,11 +1,16 @@
 import { useCallback, useState, useEffect } from 'react'
-import { WatchHistoryItem } from '@/types'
 import config from '@/config/constants.json'
 
 const STORAGE_KEY = config.storage.watchHistoryKey
 
+interface LocalWatchHistoryItem {
+  contentId: string
+  progress: number
+  lastWatched: Date
+}
+
 export const useWatchHistory = () => {
-  const [history, setHistory] = useState<WatchHistoryItem[]>([])
+  const [history, setHistory] = useState<LocalWatchHistoryItem[]>([])
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY)

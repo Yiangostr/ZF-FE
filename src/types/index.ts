@@ -5,18 +5,46 @@ export interface StreamingContent {
   thumbnailUrl?: string
   videoUrl?: string
   year?: number
-  genre?: string[]
+  genre: string[]
   rating?: number
   duration?: number
-  cast?: string[]
-  watchProgress?: number
+  cast: string[]
   imdbId?: string
-  type: 'movie' | 'series'
-  createdAt: Date
+  type: string
+  createdAt: string
+}
+
+export interface User {
+  id: string
+  email: string
+  name?: string
+  profileImage?: string
+  createdAt: string
 }
 
 export interface WatchHistoryItem {
+  id: string
+  userId: string
   contentId: string
-  progress: number
-  lastWatched: Date
+  watchProgress: number
+  lastWatchedAt: string
+  completed: boolean
+  content?: StreamingContent
+}
+
+export interface MyListItem {
+  id: string
+  userId: string
+  contentId: string
+  addedAt: string
+  content?: StreamingContent
+}
+
+export interface UserPreferences {
+  id: string
+  userId: string
+  autoplayNext: boolean
+  autoplayPreviews: boolean
+  maturityLevel: string
+  language: string
 }

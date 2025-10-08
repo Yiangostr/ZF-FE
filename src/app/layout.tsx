@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
-import { Header } from '@/components/layout/header'
+import { ConditionalHeader } from '@/components/layout/conditional-header'
 import { ToastContainer } from '@/components/ui/toast'
 import config from '@/config/constants.json'
 
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.variable}>
         <Providers>
-          <Header />
+          <ConditionalHeader />
           <main className="min-h-screen-nav">{children}</main>
           <ToastContainer />
         </Providers>

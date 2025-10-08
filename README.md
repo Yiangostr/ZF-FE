@@ -1,276 +1,358 @@
-# ZenithFlix Frontend
+# Zenflix
 
-Next-generation AI-driven streaming platform UI built with Next.js 14 and modern React patterns.
+A modern Netflix-style streaming platform built with Next.js, NestJS, and PostgreSQL.
+
+---
+
+## Quick Start
+
+Choose your setup guide based on your experience level:
+
+### For Beginners
+
+**[Quick Start Guide](QUICK_START.md)** - Step-by-step guide with explanations (5-10 minutes)
+
+### Detailed Documentation
+
+- **[Frontend Setup](SETUP.md)** - Complete Next.js/React guide
+- **[Backend Setup](../ZF-BE/SETUP.md)** - Complete NestJS/Prisma guide
+
+### For Experts
+
+**[Backend Expert Setup](../ZF-BE/EXPERT_SETUP.md)** - Command reference for fast setup (2 minutes)
+
+---
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript (strict mode)
+### Frontend (`ZF-FE/`)
+
+- **Framework**: Next.js 13 (App Router)
+- **UI Library**: React 18
+- **State Management**: Redux Toolkit
+- **Data Fetching**: TanStack Query
 - **Styling**: Tailwind CSS
-- **State Management**: Redux Toolkit + TanStack Query
-- **Testing**: Vitest + React Testing Library
+- **Language**: TypeScript
 
-## Prerequisites
+### Backend (`ZF-BE/`)
 
-- Node.js 18+
-- npm (recommended) or npm
-- Backend API running (see ZF-BE)
+- **Framework**: NestJS
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **Authentication**: JWT
+- **Validation**: class-validator
+- **Security**: Helmet, Rate Limiting
+- **Language**: TypeScript
 
-## Setup
+---
 
-### 1. Install Dependencies
+## Features
 
-```bash
-npm install
-```
+### User Features
 
-### 2. Environment Configuration
+-  User registration and authentication
+-  Profile management (avatar, name, email, password)
+-  Browse streaming content (movies & series)
+-  Search and filter content
+-  "My List" - save favorite content
+-  Watch history tracking
+-  Video player with progress tracking
+-  Trending content page
+-  Responsive design (mobile & desktop)
 
-Create `.env.local`:
+### Technical Features
 
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
-```
+-  JWT-based authentication
+-  Password hashing (bcrypt)
+-  Protected routes
+-  Real-time data synchronization
+-  Optimistic UI updates
+-  Image optimization
+-  XSS protection
+-  Input validation
+-  CORS configuration
+-  Database migrations
+-  Seed data scripts
 
-### 3. Run Development Server
-
-```bash
-npm dev
-```
-
-Application runs at `http://localhost:3000`
-
-## Testing
-
-```bash
-
-npm test
-
-
-npm test:ui
-
-npm test:coverage
-```
+---
 
 ## Project Structure
 
 ```
-src/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Home page
-│   ├── providers.tsx      # Global providers
-│   └── globals.css        # Global styles
-├── components/            # React components
-│   ├── ui/               # Base UI components
-│   ├── streaming/        # Feature components
-│   └── layout/           # Layout components
-├── features/             # Feature modules
-│   └── streaming/
-│       ├── api.ts        # API client
-│       └── hooks/        # Custom hooks
-├── store/                # Redux store
-│   ├── slices/
-│   └── index.ts
-├── lib/                  # Utilities
-├── types/                # TypeScript types
-└── test/                 # Test setup
+zenflix/
+├── ZF-FE/                  # Frontend (Next.js)
+│   ├── src/
+│   │   ├── app/           # Next.js pages (App Router)
+│   │   ├── components/    # React components
+│   │   ├── features/      # Feature-specific logic
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── store/         # Redux store & slices
+│   │   ├── lib/           # Utilities
+│   │   └── types/         # TypeScript types
+│   └── public/            # Static assets
+│
+├── ZF-BE/                  # Backend (NestJS)
+│   ├── src/
+│   │   ├── modules/       # Feature modules
+│   │   │   ├── auth/     # Authentication
+│   │   │   ├── streaming/# Content management
+│   │   │   └── prisma/   # Database service
+│   │   └── common/        # Shared utilities
+│   └── prisma/
+│       ├── schema.prisma  # Database schema
+│       └── seed.ts        # Sample data
+│
+├── QUICK_START.md         # Beginner-friendly setup
+├── EXPERT_SETUP.md        # Quick command reference
+└── README.md              # This file
 ```
 
-## Architecture Decisions
+---
 
-### State Management Strategy
+## Getting Started (Ultra Quick)
 
-**Server State (TanStack Query)**
+### Prerequisites
 
-- Content fetching from API
-- Automatic caching and refetching
-- AbortController for request cancellation
+- Node.js v18+
+- PostgreSQL v14+
+- npm v9+
 
-**Global State (Redux)**
+### Installation
 
-- User authentication
-- App-wide preferences
-
-**Local State (React Hooks)**
-
-- UI toggles (modal open/close)
-- Form inputs
-- Component-specific state
-
-**Persistent State (localStorage)**
-
-- Watch history and progress
-
-### Component Patterns
-
-**Hook Usage Hierarchy**
-
-1. `useMemo` - Derived state and expensive calculations
-2. `useCallback` - Stable function references
-3. `useRef` - DOM refs and mutable values
-4. `useReducer` - Complex local state
-5. `useState` - Simple UI state (last resort)
-
-**Performance Optimizations**
-
-- React.memo for pure components
-- useMemo for object/array computations
-- Image optimization with Next.js Image
-- Code splitting with dynamic imports
-
-### Design System
-
-**Netflix-Inspired Theme**
-
-```js
-colors: {
-  primary: '#E50914',
-  background: {
-    primary: '#141414',
-    secondary: '#1F1F1F',
-    tertiary: '#2F2F2F'
-  },
-  text: {
-    primary: '#FFFFFF',
-    secondary: '#B3B3B3',
-    muted: '#808080'
-  }
-}
-```
-
-**Responsive Breakpoints**
-
-- Mobile: < 640px
-- Tablet: 640px - 1024px
-- Desktop: > 1024px
-
-### Accessibility
-
-- ARIA labels on interactive elements
-- Keyboard navigation support
-- Focus management in modals
-- Semantic HTML structure
-- Screen reader friendly
-
-## Key Features
-
-### Content Browsing
-
-- Horizontal scrollable rows
-- Hover interactions with scale effects
-- Loading skeletons
-- Responsive grid layout
-
-### Content Modal
-
-- Detailed content information
-- Play button with mock player
-- Add to list functionality
-- Progress indicator
-- Keyboard accessible (ESC to close)
-
-### Watch History
-
-- localStorage persistence
-- Progress tracking per content
-- Visual progress bars
-- Custom hook pattern
-
-## Development Commands
+**Option 1: Beginners**
 
 ```bash
-npm dev
-npm build
-npm start
-npm lint
-npm test
+# Follow the interactive guide
+open QUICK_START.md
 ```
+
+**Option 2: Experts**
+
+```bash
+# Backend (Terminal 1)
+cd ZF-BE && npm i && npx prisma generate && npx prisma migrate dev && npm run seed && npm run start:dev
+
+# Frontend (Terminal 2)
+cd ZF-FE && npm i && npm run dev
+```
+
+Then open **http://localhost:3000**
+
+---
+
+## Usage
+
+### Access Points
+
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:3001/api
+- **Database GUI**: http://localhost:5555 (run `npx prisma studio`)
+
+### Default Flow
+
+1. Register a new account at `/register`
+2. Login with your credentials
+3. Browse content on the homepage
+4. Add movies/series to "My List"
+5. Track your watch progress
+
+---
+
+## Testing
+
+### Frontend Tests
+
+```bash
+cd ZF-FE
+npm test                   # Run tests
+npm run test:watch         # Watch mode
+npm run test:coverage      # Coverage report
+```
+
+### Backend Tests
+
+```bash
+cd ZF-BE
+npm test                   # Unit tests
+npm run test:e2e           # E2E tests
+npm run test:cov           # Coverage report
+```
+
+---
+
+## Database Management
+
+### Prisma Studio (GUI)
+
+```bash
+cd ZF-BE
+npx prisma studio
+# Opens http://localhost:5555
+```
+
+### Create Migration
+
+```bash
+cd ZF-BE
+npx prisma migrate dev --name migration_name
+```
+
+### Reset Database
+
+```bash
+cd ZF-BE
+npx prisma migrate reset
+npm run seed
+```
+
+---
 
 ## Production Deployment
 
-### Vercel (AFTER CONNECTED TO VERCEL)
+### Build Frontend
 
 ```bash
-vercel deploy
-```
-
-### Manual Deployment
-
-```bash
-npm build
+cd ZF-FE
+npm run build
 npm start
 ```
 
-## Performance Targets
+### Build Backend
 
-- First Contentful Paint < 1.5s
-- Time to Interactive < 3s
-- Lighthouse Score > 90
-- Core Web Vitals optimized
+```bash
+cd ZF-BE
+npm run build
+npx prisma migrate deploy
+npm run start:prod
+```
 
-## Design Patterns
+---
 
-### Custom Hooks
+## Security
 
-- `useWatchHistory` - Watch progress management
-- `useStreamingContent` - API data fetching
-- `useContentById` - Single content fetching
+- **Password Hashing**: bcrypt with 10 salt rounds
+- **JWT Tokens**: Secure token-based authentication
+- **Input Validation**: All DTOs validated with class-validator
+- **XSS Protection**: Helmet security headers + input sanitization
+- **Rate Limiting**: Prevents brute-force attacks (100 req/15min)
+- **CORS**: Configured for specific origins
+- **SQL Injection**: Prevented by Prisma ORM
 
-### Component Composition
+---
 
-- Modal wrapper for dialogs
-- ContentRow for horizontal scrolling
-- ContentCard for individual items
-- Skeleton for loading states
+## Troubleshooting
 
-## Future Enhancements
+### Port Already in Use
 
-- User authentication flow
-- Personalized recommendations
-- Search functionality
-- Genre filtering
-- Video player integration
-- Social features (reviews, ratings)
-- PWA capabilities
+```bash
+# Kill process on port 3000 (frontend)
+lsof -ti:3000 | xargs kill -9
 
-## Code Quality
+# Kill process on port 3001 (backend)
+lsof -ti:3001 | xargs kill -9
+```
 
-- TypeScript strict mode enabled
-- ESLint + Prettier configured
-- Component testing coverage
-- Hook testing with renderHook
-- Accessibility audits
+### Database Connection Issues
 
-1. **API Integration**: Backend runs on localhost:3001
-2. **Authentication**: JWT token structure from backend
-3. **Content Images**: Using TMDB image URLs (We can use their API directly, which means we won’t need to maintain our own backend for most of the functions)
-4. **Video Player**: Mock implementation (play icon only)
-5. **Responsive Design**: Mobile-first approach
-6. **Browser Support**: Modern browsers (ES2021+)
+```bash
+# Check PostgreSQL is running
+brew services list           # macOS
+sudo systemctl status postgresql  # Linux
 
-## Challenges & Solutions
+# Restart if needed
+brew services restart postgresql@14
+```
 
-### Challenge: Hook Order Violations
+### Module Not Found
 
-**Solution**: All hooks called before conditional logic, CSS for responsive rendering
+```bash
+# Clear and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
 
-### Challenge: Watch History Persistence
+---
 
-**Solution**: Custom hook with localStorage, memoized getters
+## API Documentation
 
-### Challenge: Smooth Scrolling
+### Authentication Endpoints
 
-**Solution**: useRef with smooth scroll behavior, arrow navigation
+| Method | Endpoint             | Description       |
+| ------ | -------------------- | ----------------- |
+| POST   | `/api/auth/register` | Register new user |
+| POST   | `/api/auth/login`    | Login user        |
+| GET    | `/api/auth/me`       | Get current user  |
+| PUT    | `/api/auth/profile`  | Update profile    |
+| PUT    | `/api/auth/password` | Change password   |
 
-### Challenge: Modal Accessibility
+### Streaming Endpoints
 
-**Solution**: Focus trap, ESC key handler, ARIA attributes
+| Method | Endpoint                    | Description       |
+| ------ | --------------------------- | ----------------- |
+| GET    | `/api/streaming`            | Get all content   |
+| GET    | `/api/streaming/:id`        | Get content by ID |
+| GET    | `/api/streaming/trending`   | Get trending      |
+| GET    | `/api/streaming/type/:type` | Filter by type    |
 
-## Notes
+---
 
-- No real video playback (mock player UI only)
-- Sample data from backend seed
-- Theme inspired by Netflix
-- Following React best practices and rules
-- AbortController pattern for API calls
+## 🤝 Contributing
+
+### Code Quality Rules
+
+-  All files must be under 200 lines
+-  Use `useReducer` for 4+ related state values
+-  Minimize `useState` and `useEffect` usage
+-  Extract reusable logic into custom hooks
+-  Follow DRY principles
+-  Add TSDoc comments to exported functions
+
+### Before Committing
+
+```bash
+# Frontend
+cd ZF-FE
+npm run lint
+npm test
+
+# Backend
+cd ZF-BE
+npm run lint
+npm test
+```
+
+---
+
+## License
+
+This project is for educational purposes.
+
+---
+
+## Support
+
+For setup help:
+
+1. Check [Quick Start Guide](QUICK_START.md)
+2. Review [Expert Setup Guide](EXPERT_SETUP.md)
+3. Read detailed docs in [ZF-FE/SETUP.md](ZF-FE/SETUP.md) and [ZF-BE/SETUP.md](ZF-BE/SETUP.md)
+
+---
+
+## Learning Resources
+
+### Official Documentation
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [NestJS Documentation](https://docs.nestjs.com)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [React Documentation](https://react.dev)
+- [Redux Toolkit](https://redux-toolkit.js.org)
+
+### Project Guides
+
+- [Frontend Architecture](SETUP.md#project-structure)
+- [Backend Architecture](../ZF-BE/SETUP.md#project-structure)
+- [Database Schema](../ZF-BE/SETUP.md#database-schema-overview)
+
+---

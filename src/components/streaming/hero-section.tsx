@@ -64,12 +64,12 @@ export const HeroSection = ({ content, onPlay, onMoreInfo }: HeroSectionProps) =
             {content.description}
           </p>
 
-          <div className="flex items-center gap-3 pt-4">
+          <div className="flex items-center gap-2 md:gap-3 pt-4">
             <button
               onClick={onPlay}
-              className="flex items-center gap-2 px-8 py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-semibold"
+              className="flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-semibold text-sm md:text-base"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
               Play
@@ -77,9 +77,14 @@ export const HeroSection = ({ content, onPlay, onMoreInfo }: HeroSectionProps) =
 
             <button
               onClick={onMoreInfo}
-              className="flex items-center gap-2 px-8 py-3 bg-white/20 backdrop-blur-sm text-white rounded hover:bg-white/30 transition-colors font-semibold"
+              className="flex items-center gap-2 px-4 md:px-8 py-2.5 md:py-3 bg-white/20 backdrop-blur-sm text-white rounded hover:bg-white/30 transition-colors font-semibold text-sm md:text-base"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5 md:w-6 md:h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -87,20 +92,26 @@ export const HeroSection = ({ content, onPlay, onMoreInfo }: HeroSectionProps) =
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              More Info
+              <span className="hidden sm:inline">More Info</span>
+              <span className="sm:hidden">Info</span>
             </button>
 
             <button
               onClick={() => toggleList(content.id)}
-              className="w-12 h-12 rounded-full border-2 border-white/70 hover:border-white hover:bg-white/20 flex items-center justify-center transition-colors ml-2"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/70 hover:border-white hover:bg-white/20 flex items-center justify-center transition-colors"
               aria-label={inList ? 'Remove from My List' : 'Add to My List'}
             >
               {inList ? (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

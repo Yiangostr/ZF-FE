@@ -9,8 +9,9 @@ import { useStreamingContent } from '@/features/streaming/hooks/use-streaming-co
 import { useWatchHistory } from '@/features/streaming/hooks/use-watch-history'
 import { StreamingContent } from '@/types'
 import config from '@/config/constants.json'
+import ProtectedRoute from '@/components/auth/protected-route'
 
-export default function TrendingPage() {
+function TrendingPageContent() {
   const { data: content, isLoading, error } = useStreamingContent()
   const { updateProgress } = useWatchHistory()
   const [selectedContent, setSelectedContent] = useState<StreamingContent | null>(null)
@@ -104,5 +105,13 @@ export default function TrendingPage() {
         />
       )}
     </div>
+  )
+}
+
+export default function TrendingPage() {
+  return (
+    <ProtectedRoute>
+      <TrendingPageContent />
+    </ProtectedRoute>
   )
 }

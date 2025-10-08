@@ -13,8 +13,9 @@ import { useStreamingContent } from '@/features/streaming/hooks/use-streaming-co
 import { useWatchHistory } from '@/features/streaming/hooks/use-watch-history'
 import { StreamingContent } from '@/types'
 import config from '@/config/constants.json'
+import ProtectedRoute from '@/components/auth/protected-route'
 
-export default function HomePage() {
+function HomePageContent() {
   const searchParams = useSearchParams()
   const searchQuery = searchParams.get('search') || undefined
   const { data: content, isLoading, error } = useStreamingContent(searchQuery)
@@ -149,5 +150,13 @@ export default function HomePage() {
         />
       )}
     </div>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <ProtectedRoute>
+      <HomePageContent />
+    </ProtectedRoute>
   )
 }
